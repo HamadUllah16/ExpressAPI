@@ -1,0 +1,29 @@
+<%- include("./header") %>
+<div class="container">
+  <h2 class="text-center m-3">Welcome, below are the listed campgrounds.</h2>
+    <div class="flex-container">
+        <% camps.forEach((element)=>{ %>
+          <div class="flex-item p-2 m-2  rounded bg-light shadow">
+            <h3 class="element-name text-center"><%= element.name %></h1>
+            <img height="180px" width="300px" class="rounded" src="<%= element.image %>" /> <br>
+            <p class="element-description pt-2"><%= element.description %></p>
+              <div class="flex-container">
+                <a class="btn btn-primary m-2" href="/edit/<%= element.id %>">Edit</a>
+                <form action="/delete/<%= element.id %>?_method=DELETE" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="submit" value="Delete" class=" btn btn-danger m-2" onclick="return confirm('Are you sure you want to delete this item?')">
+                    
+                  </div>
+            </form>
+            
+          </div>
+            
+        <% }) %>
+        
+        
+    </div>
+  <a class="btn btn-primary" href="/add">Add</a>    
+</div>
+  
+
+<%- include("./footer") %>

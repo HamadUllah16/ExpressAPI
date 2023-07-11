@@ -1,0 +1,35 @@
+<%- include("./header") %>
+<div class="m-3">
+  <h3 class="text-center">
+    Edit a Campground
+  </h3>
+
+<div class="addFlex">
+  
+  <div class="edit p-3 m-3 rounded bg-light shadow" >
+    <form action="/edit/<%= camp.id %>?_method=PUT" method="post" class="bg-light p-3">
+      <input type="hidden" name="_method" value="PUT">
+      
+      <fieldset>
+        <div class="m-3">
+          <label for="name" >Name</label><br>
+          <input type="text" name="name" value=<%= camp.name %> required>
+        
+        <div class="mb-1">
+          <label for="image" >Image</label><br>
+          <input type="text" name="image"  value=<%= camp.image %>>
+        </div>
+        <div class="mb-3">
+          <label for="description" >Description</label><br>
+          <textarea id="description" value=<%= camp.description %>></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" value="OK">Confirm Changes</button>
+          <a href="/" class="btn btn-danger" value="OK">Cancel</a>
+        </div>
+      </fieldset>          
+      </form>
+  </div>
+</div>
+</div>
+<%- include("./footer") %>

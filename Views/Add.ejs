@@ -1,0 +1,29 @@
+<%- include("./header") %>
+<div class="m-3">
+  <h3 class="text-center">
+    Add a Campground
+  </h3>
+</div>
+<div class="addFlex">
+  <div class="edit p-3 m-3 rounded bg-light shadow">
+      <form  action="/newCamp" method="post" class="bg-light p-3">
+            <div class="m-3">
+              <label for="name" >Name</label><br>
+              <input type="text" name="name" id="name" class="name" required>
+              
+            <div class="mb-1">
+              <label for="image" >Image</label><br>
+              <input type="text" name="image" id="image"  required>
+            </div>
+            <div class="mb-3">
+              <label for="description" >Description</label><br>
+              <textarea name="description" id="description"  ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" value="OK">Submit</button>
+        </div>
+        </form>
+    </div>
+  </div>
+
+<%- include("./footer") %>
+
