@@ -18,15 +18,15 @@ app.use(bodyParser.urlencoded({
 
 //-------------------- * Database * ---------------
 const mongoose = require("mongoose")
-const database = require("./src/database")
-const yelpcamps = require("./src/model")
+const database = require("./config/database")
+const yelpcamps = require("./models/model")
 
 
 //----------------- * Routes * ------------------
 
 //Home Route
-app.get("/", (req,res)=>{
-    yelpcamps.find({}).then((data)=>res.render("home", {camps: data})).catch((error)=>console.log(error, "Home route error"))
+app.get("/", async (req,res)=>{
+    await yelpcamps.find({}).then((data)=>res.render("home", {camps: data})).catch((error)=>console.log(error, "Home route error"))
  });
 
 
@@ -74,7 +74,7 @@ app.delete("/delete/:id", (req,res)=>{
 })
  
  //Server
-app.listen(3000,function(){
+app.listen(2000,function(){
     console.log("Server is running");
 });
 
